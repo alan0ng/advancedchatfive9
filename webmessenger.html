@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="https://cdn.prod.us.five9.net/static/stable/chat/wrapper/index.js"></script>
+	</head>
+	<body>
+		<button onclick="start()">Click to chat</button>
+		<script>
+			F9.Chat.Wrapper.init({
+				cdn: 'prod',
+				useBusinessHours: false,
+				languages: { enabled: false, backgroundColor: '#C33991' },
+				l10n: {
+					en: {
+						messenger: { customText: {} },
+						systemMessages: {
+							transferredToParticipant:
+								'The chat has been transferred to {name}.',
+							transferredToGroup:
+								'That chat has been transferred to group {group}.'
+						},
+						captureFields: [
+							{ k: 'name', l: 'Name', p: 'Enter your name...' },
+							{
+								k: 'email',
+								l: 'Email Address (required for security purposes)',
+								p: 'Enter your email...'
+							}
+						]
+					}
+				},
+				prepopulatedFields: [
+					{ k: 'campaign', v: 'SMS Claims Auto - IB' },
+					{ k: 'Question', v: 'DEFAULT_VALUE' }
+				],
+				messenger: {
+					integrationId: '90ae5e03-7efe-44f7-9c96-31d024a56cff',
+					soundNotificationEnabled: true,
+					transcriptPrintingEnabled: true,
+					menuItems: {
+						imageUpload: false,
+						fileUpload: false,
+						shareLocation: false
+					},
+					embedded: false,
+					browserStorage: 'sessionStorage',
+					fixedHeader: false,
+					displayStyle: 'button',
+					customColors: {
+						brandColor: 'C33991',
+						conversationColor: '0099ff',
+						actionColor: '0099ff'
+					}
+				},
+				clearMessagesTimeout: 180
+			});
+		</script>
+		<script>
+			function start() {
+				if (FIVN && FIVN.isOpened && !FIVN.isOpened()) {
+					FIVN.open();
+				}
+			}
+		</script>
+		<style>
+			@keyframes keyframe4 {
+				0% {
+					width: 100%;
+					height: 90%;
+				}
+				100% {
+					width: 100%;
+					height: 90%;
+				}
+			}
+
+			@-webkit-keyframes keyframe4 {
+				0% {
+					width: 100%;
+					height: 90%;
+				}
+				100% {
+					width: 100%;
+					height: 90%;
+				}
+			}
+		</style>
+	</body>
+</html>
