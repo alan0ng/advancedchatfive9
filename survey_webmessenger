@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+	<script src="https://cdn.prod.us.five9.net/static/stable/chat/wrapper/index.js"></script>
+
+</head>
+
+	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
+  
+
+    <script>
+        // vanilla javascript document ready function
+        document.addEventListener("DOMContentLoaded", function (event) {
+            webMessengerInitOptions = {
+                cdn: 'prod',
+                useBusinessHours: false,
+                languages: { "enabled": false, "backgroundColor": "#65758e" },
+                l10n: {
+                    "en": {
+                        "messenger": { "customText": {} },
+                        "systemMessages": {
+                            "transferredToParticipant": "The chat has been transferred to {name}.",
+                            "transferredToGroup": "That chat has been transferred to group {group}."
+                        },
+                        "captureFields": [
+                            { "k": "name", "l": "Nahme", "p": "Enter your name..." },
+                            { "k": "email", "l": "Email Address", "p": "Enter your email..." },
+                            { "k": "Question", "l": "Question", "p": "What can we help you with today?" }
+                        ]
+                    }
+                },
+                prepopulatedFields: [
+                    { "k": "campaign", "v": "SMS Claims Auto - IB" },
+                  
+                ],
+                messenger: {
+                    "integrationId": "90ae5e03-7efe-44f7-9c96-31d024a56cff",
+                    "soundNotificationEnabled": true,
+                    "transcriptPrintingEnabled": false,
+                    "menuItems": {
+                        "imageUpload": true,
+                        "fileUpload": true, "shareLocation": true
+                    },
+                    "embedded": false,
+				
+					
+                    "browserStorage": "sessionStorage",
+					"hideWidgetAfterBusinessHours":false,
+                    "fixedHeader": false,
+                    "displayStyle": "button",
+                    "customColors": {
+                        "brandColor": "65758e",
+                        "conversationColor": "0099ff",
+                        "actionColor": "0099ff"
+                    }
+                },
+                clearMessagesTimeout: 3
+            }
+
+
+            F9.Chat.Wrapper.init(webMessengerInitOptions);
+
+            // After the Web Messenger is initialized, here are all of the callback functions you can attach events to.  See the end of the list for the Chat End event
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatCaptureShown, () => {
+                console.log("EVENT: Form shown")
+            })
+
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatMessageReceived, (data) => {
+                console.log("EVENT: MessageRecieved")
+                console.log(data)
+            })
+
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatSystemConversationCreated, (data) => {
+                console.log(data)
+                console.log("EVENT: Conversation created with Five9")
+            })
+
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatSystemParticipantAccepted, () => {
+                console.log("EVENT: A participant (Agent or chat bot) has accepted the chat")
+            })
+
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatSystemParticipantJoined, () => {
+                console.log("EVENT: A participant has joined the chat")
+            })
+
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatSystemParticipantLeft, () => {
+                console.log("EVENT: A participant has left the chat")
+            })
+
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatSystemTransferredToParticipant, () => {
+                console.log("EVENT: Chat has been transferred to a participant")
+            })
+
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatSystemTransferredToGroup, () => {
+                console.log("EVENT: Chat has been transferred to a group")
+            })
+
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatMessageSent, () => {
+                console.log("EVENT: Chat message was sent by user")
+            })
+
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatMessageReceived, () => {
+                console.log("EVENT: Chat message was received by user")
+            })
+
+            F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatSystemConversationTerminated, () => {
+                console.log("EVENT: Chat has been terminated")
+                // use sweetalert to ask if they want to take a survey, if yes, then launch the survey url in a new window
+                let surveyUrl = 'https://www.youtube.com/watch?v=kw-w5S8e6y4'
+                Swal.fire({
+                    title: 'Chat Ended',
+                    text: "Do you have 1 more minute?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.open(surveyUrl, '_blank');
+                    }
+                })
+            })
+        });
+
+
+    </script>
+
+</body>
+
+</html>
