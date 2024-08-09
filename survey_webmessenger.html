@@ -110,7 +110,7 @@
             F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatSystemConversationTerminated, () => {
                 console.log("EVENT: Chat has been terminated")
                 // use sweetalert to ask if they want to take a survey, if yes, then launch the survey url in a new window
-                let surveyUrl = 'https://api.five9.com/ivr/1/133900/sessions/73040EFF3DA84CE9BBE40AB04758632B_1970/view.html'
+                let surveyUrl = 'https://api.five9.com/ivr/1/133900/campaigns/300000000000053/new_ivr_session'
                 Swal.fire({
                     title: 'Chat Ended',
                     text: "Do you have 1 more minute?",
