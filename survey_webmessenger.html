@@ -13,7 +13,7 @@
     <script>
         // vanilla javascript document ready function
 
-let r = (Math.random() + 1).toString(36).substring(7);
+let random = (Math.random() + 1).toString(36).substring(32);
 console.log(r);
 	    
         document.addEventListener("DOMContentLoaded", function (event) {
@@ -38,7 +38,7 @@ console.log(r);
                 },
                 prepopulatedFields: [
                     { "k": "campaign", "v": "SMS Claims Auto - IB" },
-			{"k":"Reporting.task_id","v": r},
+			{"k":"Reporting.task_id","v": random},
 			
                   
                 ],
@@ -117,7 +117,7 @@ console.log(r);
                 console.log("EVENT: Chat has been terminated")
                 // use sweetalert to ask if they want to take a survey, if yes, then launch the survey url in a new window
                 let surveyUrl = new URL("https://api.five9.com/ivr/1/133900/campaigns/300000000000053/new_ivr_session");
-		    surveyUrl.searchParams.append('Reporting.task_id', r);
+		    surveyUrl.searchParams.append('Reporting.task_id', random);
 		    console.log(surveyUrl);
 
                 Swal.fire({
