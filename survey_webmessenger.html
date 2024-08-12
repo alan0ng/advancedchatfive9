@@ -14,6 +14,20 @@
 
     <script>
         // vanilla javascript document ready function
+	    function makeid(length) {
+    		let result = '';
+    	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    	const charactersLength = characters.length;
+   	 let counter = 0;
+    	while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+
+console.log(makeid(5));
+	    
         document.addEventListener("DOMContentLoaded", function (event) {
             webMessengerInitOptions = {
                 cdn: 'prod',
@@ -70,19 +84,7 @@
             F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatCaptureShown, () => {
                 console.log("EVENT: Form shown")
             })
-		function makeid(length) {
-    		let result = '';
-    	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    	const charactersLength = characters.length;
-   	 let counter = 0;
-    	while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-}
-
-console.log(makeid(5));
+		
 
             F9.Chat.Wrapper.messenger.on(F9.Chat.Wrapper.Events.ChatMessageReceived, (data) => {
                 console.log("EVENT: MessageRecieved")
