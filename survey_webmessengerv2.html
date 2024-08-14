@@ -119,10 +119,7 @@ console.log(ranmath);
                 let surveyUrl = new URL("https://api.five9.com/ivr/1/133900/campaigns/300000000000053/new_ivr_session");
 		    surveyUrl.searchParams.append('Reporting.task_id', ranmath);
 		    console.log(surveyUrl);
-             
-                    setTimeout (function() {
-                        window.open(surveyUrl, '_blank');
-                    },3000)
+                    setTimeout (function() {window.open(surveyUrl, '_blank');},3000);
                 })
             })
         });
