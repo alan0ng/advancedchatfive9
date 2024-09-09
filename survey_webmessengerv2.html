@@ -19,7 +19,8 @@ ranmath = ranmath.substring(0, 15);
         document.addEventListener("DOMContentLoaded", function (event) {
             webMessengerInitOptions = {
                 cdn: 'prod',
-                useBusinessHours: false,
+                useBusinessHours: true,
+		hideDuringAfterHours: true,
                 languages: { "enabled": false, "backgroundColor": "#65758e" },
                 l10n: {
                     "en": {
