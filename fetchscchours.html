@@ -3,38 +3,38 @@
 
 <head>
     <script src=
-"https://code.jquery.com/jquery-3.3.1.min.js">
+"https://code.jquery.com/jquery-3.6.0.min.js">
     </script>
 </head>
 
 <body>
 
     <script>
-function ajaxCall() {
-        $.ajax({
 
-    url: 'https://app-scl.five9.com/appsvcs/rs/svc/orgs/estimatedwaittime/1000?tenantName=PS%202021.3a.6&campaignName=SMS%20Claims%20Auto%20-%20IB',
-            type: "GET",
+        function ajaxCall() {
+            $.ajax({
 
-    dataType: 'json',
+                // Our sample url to make request 
+                url:
+                    'https://app-scl.five9.com/appsvcs/rs/svc/orgs/estimatedwaittime/1000?tenantName=PS%202021.3a.6&campaignName=SMS%20Claims%20Auto%20-%20IB',
 
-    success: function(data) {
+                // Type of Request
+                type: "GET",
 
-        /* Parse the JSON data */
+                // Function to call when to
+                // request is ok 
+                success: function (data) {
+                    let x = JSON.parse(data);
+                    console.log(x);
+                },
 
-        const obj = JSON.parse(data);
-
-        
-
-        /* Access the object properties */
-
-        console.log(obj.businessHours);
-
-    }
-
-});
-}
-    ajaxCall();
+                // Error handling 
+                error: function (error) {
+                    console.log(`Error ${error}`);
+                }
+            });
+        }
+        ajaxCall();
     </script>
 </body>
 
