@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="https://cdn.prod.us.five9.net/static/stable/chat/wrapper/index.js"></script>
+	</head>
+	<body>
+		<script>
+			 function ajaxCall() {
+            $.ajax({
+
+                // Our sample url to make request 
+                url:
+                    'https://app-scl.five9.com/appsvcs/rs/svc/orgs/estimatedwaittime/1000?tenantName=PS%202021.3a.6&campaignName=new%20sms%20inbound',
+
+                // Type of Request
+                type: "GET",
+
+                // Function to call when to
+                // request is ok 
+                success: function (data) {
+                    var x = JSON.parse(JSON.stringify(data['businessHours']));
+                    console.log(x.openForBusiness);
+                },
+
+                // Error handling 
+                error: function (error) {
+                    console.log(`Error ${error}`);
+                }
+            });
+        }
+        ajaxCall();			
+			 {
+				F9.Chat.Wrapper.init({
+					cdn: 'prod',
+					useBusinessHours: false,
+					languages: { enabled: false, backgroundColor: '#65758e' },
+					l10n: {
+						en: {
+							messenger: {
+								customText: {
+									welcomeDescription:
+										'All information submitted is subject to our Privacy Notice (taxact.com/privacy-notice) and is processed by our service provider. Please fill out the details below.'
+								}
+							},
+							systemMessages: {
+								transferredToParticipant:
+									'The chat has been transferred to {name}.',
+								transferredToGroup:
+									'That chat has been transferred to group {group}.'
+							},
+							captureFields: [
+								{ k: 'name', l: 'Name', p: 'Enter your name...' },
+								{ k: 'email', l: 'Email Address', p: 'Enter your email...' }
+							]
+						}
+					},
+					prepopulatedFields: [
+						{ k: 'campaign', v: 'SMS Claims Auto - IB' },
+					],
+					messenger: {
+						integrationId: '90ae5e03-7efe-44f7-9c96-31d024a56cff',
+						soundNotificationEnabled: true,
+						transcriptPrintingEnabled: true,
+						menuItems: {
+							imageUpload: false,
+							fileUpload: false,
+							shareLocation: false
+						},
+						embedded: false,
+						browserStorage: 'sessionStorage',
+						fixedHeader: false,
+						displayStyle: 'button',
+						customColors: {
+							brandColor: '65758e',
+							conversationColor: '0099ff',
+							actionColor: '0099ff'
+						}
+					},
+					clearMessagesTimeout: 300
+				});
+			}
+		</script>
+	</body>
+</html
