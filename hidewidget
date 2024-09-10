@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="https://cdn.prod.ca.five9.net/static/stable/chat/wrapper/index.js"></script>
+	</head>
+	<body>
+		<script>
+			var start_time = '09:00';
+			var end_time = '19:00';
+
+			function setTime(date, str) {
+				var hours = str.split(':')[0];
+				var minutes = str.split(':')[1];
+
+				date.setHours(hours);
+				date.setMinutes(minutes);
+				date.setSeconds(0);
+
+				return date;
+			}
+
+			var current_date = new Date();
+            console.log(current_date);
+
+			var start = setTime(new Date(current_date), start_time);
+			var end = setTime(new Date(current_date), end_time);
+
+			if (
+				current_date.getTime() >= start.getTime() &&
+				current_date.getTime() <= end.getTime()
+			) {
+				F9.Chat.Wrapper.init({
+					cdn: 'prod',
+					useBusinessHours: false,
+					languages: { enabled: false, backgroundColor: '#65758e' },
+					l10n: {
+						en: {
+							messenger: {
+								customText: {
+									welcomeDescription:
+										'All information submitted is subject to our Privacy Notice (taxact.com/privacy-notice) and is processed by our service provider. Please fill out the details below.'
+								}
+							},
+							systemMessages: {
+								transferredToParticipant:
+									'The chat has been transferred to {name}.',
+								transferredToGroup:
+									'That chat has been transferred to group {group}.'
+							},
+							captureFields: [
+								{ k: 'name', l: 'Name', p: 'Enter your name...' },
+								{ k: 'email', l: 'Email Address', p: 'Enter your email...' }
+							]
+						}
+					},
+					prepopulatedFields: [
+						{ k: 'campaign', v: 'SMS Claims Auto - IB' }
+					],
+					messenger: {
+						integrationId: '90ae5e03-7efe-44f7-9c96-31d024a56cff',
+						soundNotificationEnabled: true,
+						transcriptPrintingEnabled: true,
+						menuItems: {
+							imageUpload: false,
+							fileUpload: false,
+							shareLocation: false
+						},
+						embedded: false,
+						browserStorage: 'sessionStorage',
+						fixedHeader: false,
+						displayStyle: 'button',
+						customColors: {
+							brandColor: '65758e',
+							conversationColor: '0099ff',
+							actionColor: '0099ff'
+						}
+					},
+					clearMessagesTimeout: 300
+				});
+			}
+		</script>
+	</body>
+</html
