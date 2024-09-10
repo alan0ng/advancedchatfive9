@@ -5,30 +5,7 @@
 	</head>
 	<body>
 		<script>
-			var start_time = '09:00';
-			var end_time = '19:00';
-
-			function setTime(date, str) {
-				var hours = str.split(':')[0];
-				var minutes = str.split(':')[1];
-
-				date.setHours(hours);
-				date.setMinutes(minutes);
-				date.setSeconds(0);
-
-				return date;
-			}
-
-			var current_date = new Date();
-            console.log(current_date);
-
-			var start = setTime(new Date(current_date), start_time);
-			var end = setTime(new Date(current_date), end_time);
-
-			if (
-				current_date.getTime() >= start.getTime() &&
-				current_date.getTime() <= end.getTime()
-			) {
+			 {
 				F9.Chat.Wrapper.init({
 					cdn: 'prod',
 					useBusinessHours: false,
