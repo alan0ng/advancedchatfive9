@@ -24,8 +24,8 @@
                 // Function to call when to
                 // request is ok 
                 success: function (data) {
-                    let x = JSON.parse(data);
-                    console.log(x);
+                    let x = JSON.stringify(data);
+                    console.log(x.businessHours);
                 },
 
                 // Error handling 
