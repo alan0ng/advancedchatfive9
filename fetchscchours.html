@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<script>
+const apiUrl = 'https://app-scl.five9.com/appsvcs/rs/svc/orgs/estimatedwaittime/1000?tenantName=PS%202021.3a.6&campaignName=SMS%20Claims%20Auto%20-%20IB';
+
+// Make a GET request
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+  
+
+
+<body>
+
+</script>
+</body>
+</html>
