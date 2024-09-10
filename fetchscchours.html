@@ -15,8 +15,8 @@
             $.ajax({
 
                 // Our sample url to make request 
-                url:
-                    'https://app-scl.five9.com/appsvcs/rs/svc/orgs/estimatedwaittime/1000?tenantName=PS%202021.3a.6&campaignName=SMS%20Claims%20Auto%20-%20IB',
+                url:'https://app-scl.five9.com/appsvcs/rs/svc/orgs/estimatedwaittime/1000?tenantName=PS%202021.3a.6&campaignName=SMS%20Claims%20Auto%20-%20IB',
+                dataType: 'json',
 
                 // Type of Request
                 type: "GET",
@@ -24,8 +24,8 @@
                 // Function to call when to
                 // request is ok 
                 success: function (data) {
-                    let x = JSON.stringify(data);
-                    console.log(x);
+                    var obj = JSON.parse(data);
+                    console.log(businessHours.openForBusiness);
                 },
 
                 // Error handling 
