@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			var result;
+		
 			
 			function ajaxCall() {
             $.ajax({
@@ -24,7 +24,7 @@
                 success: function (data) {
                     var x = JSON.parse(JSON.stringify(data['businessHours']));
                     console.log(x.openForBusiness);
-			result = x.openForBusiness;
+			
 			
 			
                 },
@@ -36,7 +36,7 @@
             });
         }
         ajaxCall();			
-			//if (result == true) 
+			if (ajaxcall() == true) 
 			// 
 			
 			 {
@@ -90,7 +90,6 @@
 				});
 			}
 		</script>
-		<script type="text/javascript">
-        document.write(result)</script>
+		
 	</body>
 </html
