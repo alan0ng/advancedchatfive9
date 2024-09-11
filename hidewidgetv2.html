@@ -23,8 +23,9 @@
                 // request is ok 
                 success: function (data) {
                     var x = JSON.parse(JSON.stringify(data['businessHours']));
+			var y = (x.openForBusiness); 
                     console.log(x.openForBusiness);
-			return x
+			return y;
 			
                 },
                 // Error handling 
