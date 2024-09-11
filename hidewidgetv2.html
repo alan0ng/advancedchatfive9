@@ -24,7 +24,6 @@
                 success: function (data) {
                     var x = JSON.parse(JSON.stringify(data['businessHours']));
                     console.log(x.openForBusiness);
-			if (console.log(x.openForBusiness) == true)
 			
 			
                 },
@@ -36,6 +35,9 @@
             });
         }
         ajaxCall();
+
+			
+			console.log(x.openForBusiness);
 			//if (result == true) 
 			
 			
