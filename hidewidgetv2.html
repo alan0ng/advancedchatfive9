@@ -7,7 +7,9 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			 function ajaxCall() {
+			var result;
+			
+			function ajaxCall() {
             $.ajax({
 
                 // Our sample url to make request 
@@ -22,7 +24,8 @@
                 success: function (data) {
                     var x = JSON.parse(JSON.stringify(data['businessHours']));
                     console.log(x.openForBusiness);
-			if (console.log(x.openForBusiness) = 'true') {}
+			result = x.openForBusiness;
+			
 			
                 },
                 // Error handling 
@@ -33,6 +36,7 @@
             });
         }
         ajaxCall();			
+			if (result = 'true') 
 			// 
 			
 			 {
