@@ -24,7 +24,7 @@
                 success: function (data) {
                     var x = JSON.parse(JSON.stringify(data['businessHours']));
                     console.log(x.openForBusiness);
-			
+			console.log(x.openForBusiness);
 			
 			
                 },
@@ -35,9 +35,7 @@
 		   
             });
         }
-        let result = ajaxCall();
-			ajaxCall();ajaxCall();
-			console.log(result);
+        ajaxCall();
 			//if (result == true) 
 			
 			
@@ -93,9 +91,6 @@
 			}
 		</script>
 
-		<script type="text/javascript">
-        document.write('result')
-      </script> 
-		result = 'result'
+
 	</body>
 </html
