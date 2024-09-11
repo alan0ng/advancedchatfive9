@@ -36,7 +36,9 @@
             });
         }
 	ajaxCall();
+
 	let result = ajaxCall();
+						document.getElementById("test").innerHTML = result;
 			console.log(result);
         if(result === true)
 			
@@ -91,7 +93,7 @@
 				});
 			}
 		</script>
-
+<p id="test"></p>
 
 	</body>
 </html
